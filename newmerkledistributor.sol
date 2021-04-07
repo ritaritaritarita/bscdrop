@@ -183,9 +183,8 @@ contract MerkleDistributor is IMerkleDistributor, Ownable {
         uint256 claimedBitIndex = index % 256;
         claimedBitMap[claimedWordIndex] = claimedBitMap[claimedWordIndex] | (1 << claimedBitIndex);
     }
-    function setPepemonId(uint id) public onlyOwner{
-        pepemonId  = id;
-    }
+
+
     function setMerkleRoot(bytes32 _root) public onlyOwner{
         require (block.timestamp > timelock);
         timelock = block.timestamp + 2 weeks;
